@@ -69,7 +69,12 @@ span{
 .links a{
     color: var(--DarkViolet);
     padding-left: 40px;
-    text-decoration: none;   
+    text-decoration: none;  
+    transition: transform 200ms ease-in-out;
+     
+}
+.links a:hover{
+    transform: scale(1.1);
 }
 .contact-btn{
     background-color: var(--VeryLightGray);
@@ -78,10 +83,14 @@ span{
     font-size: 16px;
     font-weight: 400;
     margin-left: 40px;
-    padding: 10px 30px 10px 0;
+    padding: 10px 40px 10px 0;
     outline: none;
     text-transform: uppercase;
     text-align: center;
+    transition: transform 200ms ease-in-out;
+}
+.contact-btn:hover{
+    transform: scale(1.1);
 }
 
 
@@ -145,7 +154,7 @@ small{
 }
 .article{
     width: 100%;
-    height: 70vh;
+    height: 55vh;
     border: 1px solid #E9E9E9;
     border-radius: 10px;
     background-color: var(--VeryLightGray);
@@ -162,9 +171,13 @@ small{
 .article-text{
     padding: 30px 20px;
     text-align: center;
+    color: var(--VeryDarkViolet);
 }
 h3{
     padding-bottom: 30px;
+}
+.blog-link{
+    color: var(--GrayishBlue);
 }
 .article img:hover{
     transform: scale(1.1);
@@ -198,7 +211,7 @@ h3{
     border-radius: 10px;
     border: 1px solid #E9E9E9;
     width: 95%;
-    height: 70vh;
+    height: 65vh;
     background-color: var(--VeryLightGray);
     overflow: hidden;
 }
@@ -216,13 +229,11 @@ h3{
     cursor: pointer;
 }
 .section-txt{
-    padding: 20px 20px;
+    padding: 40px 20px;
     text-align: center;
     color: var(--DarkViolet);
 }
-h4{
-    padding-bottom: 30px;
-}
+
 
 
 
@@ -250,8 +261,11 @@ form{
     border-radius: 5px;
     border:2px solid #E9E9E9;
 }
-input{
+form div{
     width: 90%;
+}
+input{
+    width: 100%;
     padding: 15px 15px;
     outline: none;
     border: none;
@@ -268,8 +282,41 @@ input::placeholder{
     text-transform: uppercase;
     font-weight: 700;
 }
+input:focus{
+    border-color:hsl(249, 10%, 26%) ;
+}
+.input{
+    position: relative;  
+    margin-bottom: 20px;
+}
+.input.error input{
+    border: 2px solid hsl(0, 100%, 74%);
+    color: hsl(0, 100%, 74%);
+}
+.input.error textarea{
+    border: 2px solid hsl(0, 100%, 74%);
+    color: hsl(0, 100%, 74%);
+}
+.input.error img{
+    opacity: 1;
+}
+.error-icon{
+    position: absolute;
+    left: 85%;
+    margin-top: 18px;  
+    opacity: 0; 
+}
+.error-msg{
+    position: absolute;
+    font-size: 10px; 
+    color: hsl(0, 100%, 74%);
+    font-weight: 600;
+    font-style: italic;
+    left: 70%;
+    top: 2rem;
+}
 textarea{
-    width: 90%;
+    width: 100%;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -288,6 +335,9 @@ textarea::placeholder{
     text-transform: uppercase;
 
 }
+.status{
+    text-align: center;
+}
 .form-btn{
     margin-top: 25px;
     padding: 10px 50px;
@@ -296,7 +346,12 @@ textarea::placeholder{
     outline: none;
     border: none;
     border: 1px solid var(--DarkViolet);
-    border-radius: 10px;
+    transition: transform 200ms ease-in-out;
+    text-transform: uppercase;
+}
+.form-btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 .status{
     margin-top: 15px;
@@ -330,4 +385,121 @@ footer{
 }
 .fa-github{
     color:black;
+}
+
+/* media query */
+@media screen and (max-width:768px){
+    .wrapper{
+        width: 100%;
+    }
+    .links{
+        display: none;
+    }
+    .about{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .about-img img{
+        width: 300px;
+        height: 300px;
+    }
+    .about-text{
+        width: 90%;
+    }
+    .articles{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .article{
+        width: 95%;
+    }
+    h3{
+        font-size: 25px;
+    }
+    .projects{
+        display: flex;
+        flex-direction: column;
+    }
+    .sections{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    h4{
+        font-size: 25px;
+    }
+    form{
+        width: 85%;
+    }
+    .icons{
+        display: block;
+    }
+    .close{
+        display: none;
+    }
+    .links{
+        background-color: var(--DarkGrayishViolet); 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute; 
+        top: 7.3rem;
+        width: 90%;
+        height: 40vh;
+        transform: translateY(-150%);
+        transition: transform 0.2s;  
+        border-radius: 7px;
+        
+    }
+    .showMenu{
+        transform: translateY(0);
+    }
+    .links a{
+        color: hsl(0, 0%, 0%);
+        font-family: 'Overpass',sans-serif;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        color: var(--DarkViolet);
+        transition: transform 200ms ease-in-out;
+    }
+    .contact-btn:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    .links a:last-child{
+        padding: 10px 100px;
+        margin-top: 5px;
+        margin-right: 40px;
+        background-color: var(--DarkGrayishViolet);
+    }
+    .error-msg{
+        left: 50%;
+    }
+}
+
+/* smaller screens */
+@media screen and (device-aspect-ratio: 40/71) {
+    h1{
+        font-size: 40px;
+    }
+    .links{
+        top: 6rem;
+        height: 45vh;
+    }
+    .error-msg{
+        left: 50%;
+        font-size: 10px;
+    }
+    footer{
+        margin-top: 40px;
+        height: 50vh;
+    }
 }
